@@ -1,0 +1,82 @@
+<p id="notice" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+   xmlns="http://www.w3.org/1999/html"><%= notice %></p>
+
+<div class="container">
+<table class="table table-hover">
+  <b>Your Selection</b><br/>
+  <br/>
+
+  <tbody>
+  <tr class="success">
+    <td class="list_image">
+      <%= image_tag(@team.image_url) %>
+      <p>World Ranking:
+        <%= @team.world_ranking %>
+      </p>
+    </td>
+    <td >
+      <dl>
+        <dt>
+
+
+        <h2><%= @team.name %></h2>
+        </dt>
+        <br/>
+
+        <p><b>Star Player:  </b><em><%=    @team.star_player %><%= image_tag(@team.star_player_image) %></em></p>
+
+      </dl>
+    </td>
+    <td>
+  </tr>
+
+  <tr class="text-error">
+    <th>First Name</th>
+    <th>Second Name</th>
+    <th>Position</th>
+    <th>Number</th>
+  </tr>
+  <% @players.each do |team_player| %>
+      <tr>
+        <td><%= team_player.first_name %></td>
+        <td><%= team_player.last_name %></td>
+        <td><%= team_player.position %></td>
+        <td><%= team_player.player_number %></td>
+      </tr>
+  <% end %>
+  <tr>
+    <th>Round</th>
+    <th>Home</th>
+    <th>Score</th>
+    <th>Score</th>
+    <th>Away</th>
+  </tr>
+
+  <% @results.each do |team_name | %>
+      <tr>
+        <td><%= team_name.round %></td>
+        <td><%= team_name.team_name %></td>
+        <td><%= team_name.score %></td>
+        <td><%= team_name.opponent_result %></td>
+        <td><%= team_name.oponent_name %></td>
+      </tr>
+  <% end %>
+
+
+
+  </tr>
+  <td class="list_actions">
+    <div class="btn-group">
+      <div class="btn">
+        <%= link_to 'Back', teams_path %>
+      </div>
+    </div>
+  </td>
+
+  </tbody>
+</table>
+</div>
+
+
+
+

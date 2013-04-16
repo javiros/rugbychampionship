@@ -1,0 +1,36 @@
+<h1 class="text-center">Listing players</h1>
+
+<%= form_tag players_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search_query, params[:search_query] %>
+      <%= submit_tag "Search", :name => nil %>
+     </p>
+<% end %>
+
+
+<table class="table table-hover">
+  <tr class="success">
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Position</th>
+    <th>Number</th>
+    <th>Country</th>
+
+  </tr>
+
+<% @players.each do |player| %>
+  <tr class="success">
+    <td><%= player.first_name %></td>
+    <td><%= player.last_name %></td>
+    <td><%= player.position %></td>
+    <td><%= player.player_number %></td>
+    <td><%= player.team_name %></td>
+
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

@@ -1,0 +1,50 @@
+<h1 class="text-center">All Results</h1>
+
+<%= form_tag results_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search_query, params[:search_query] %>
+      <%= submit_tag "Search", :name => nil %>
+      <!--<select name="team_name">
+        <option>Select a Team</option>
+        <option>Argentina</option>
+        <option>Australia</option>
+        <option>New Zealand</option>
+        <option>South Africa</option>
+      </select>
+      <%= submit_tag "Search", :name => nil %>-->
+
+
+    </p>
+<% end %>
+
+
+
+<table class="table table-hover">
+  <tr>
+    <th>Home Team</th>
+    <th>Round</th>
+    <th>Score</th>
+    <th>Score</th>
+    <th>Away Team</th>
+    <th></th>
+  </tr>
+
+<% @results.each do |result| %>
+  <tr class="success">
+    <td><%= result.team_name %></td>
+    <td><%= result.round %></td>
+    <td><%= result.score %></td>
+    <td><%= result.opponent_result %></td>
+    <td><%= result.oponent_name %></td>
+    <td class="list_actions">
+
+        <div class="btn">
+          <%= link_to 'View result', result %><br/>
+        </div>
+
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />

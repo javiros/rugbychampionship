@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rugby Championship 2012</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class='<%= controller.controller_name %>'>
+<div class="banner">
+  <%= image_tag("logo.jpg") %>
+</div>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+        <ul class="nav">
+          <li class="active">
+            <%= link_to 'Teams', teams_path %>
+          </li>
+          <li class="active">
+             <%= link_to 'Results', results_path %>
+          </li>
+          <li class="active">
+            <%= link_to 'Players', players_path %>
+          </li>
+          <li class="active">
+            <%= link_to 'Forum', statuses_path %>
+          </li>
+        </ul>
+
+    </div>
+  </div>
+</div>
+<div class="container">
+
+  <%= yield %>
+</div>
+
+</body>
+</html>

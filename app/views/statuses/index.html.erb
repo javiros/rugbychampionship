@@ -1,0 +1,26 @@
+<h1 xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">Forum</h1>
+<h3>Leave Your Comment</h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th>Created</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @statuses.each do |status| %>
+  <tr>
+    <td><%= status.name %></td>
+    <td><%= status.content %></td>
+    <td><%= time_ago_in_words(status.created_at) %> ago</td>
+    <td class="btn btn-small"><%= link_to 'Show', status %></td>
+    </tr>
+<% end %>
+</table>
+
+<br />
+<div class="btn ">
+<%= link_to 'New Comment', new_status_path %>
+</div>
